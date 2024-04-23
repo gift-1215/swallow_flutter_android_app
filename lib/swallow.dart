@@ -5,8 +5,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:project2023/main.dart';
-
 class Swallow extends StatefulWidget {
   const Swallow({super.key});
 

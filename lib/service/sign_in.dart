@@ -14,10 +14,10 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         elevation: 0.0,
-        title: Text("請先登入"),
+        title: const Text("請先登入"),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50),
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 50),
       ),
     );
   }

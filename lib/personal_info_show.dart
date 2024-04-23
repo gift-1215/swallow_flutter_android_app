@@ -1,10 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'get_user_name.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:project2023/main.dart';
 import 'dart:async';
-import 'login.dart';
 
 class PersonalInfoShow extends StatefulWidget {
   const PersonalInfoShow({super.key});
@@ -15,7 +15,12 @@ class PersonalInfoShow extends StatefulWidget {
 
 class _PersonalInfoShowState extends State<PersonalInfoShow> {
   List<String> docIDs = [];
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
   Future getDocId() async {
+    final User? user = auth.currentUser;
+    userEmail = user!.email!;
+
     await FirebaseFirestore.instance
         .collection('$userEmail')
         .get()
@@ -52,8 +57,9 @@ class _PersonalInfoShowState extends State<PersonalInfoShow> {
                     child: FutureBuilder(
                   future: getDocId(),
                   builder: (context, snapshot) {
-                    return GetUserName(documentId: docIDs[0],);
-
+                    return GetUserName(
+                      documentId: docIDs[0],
+                    );
                   },
                 )),
               ],

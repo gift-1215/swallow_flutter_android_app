@@ -1,8 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project2023/app_description.dart';
 import 'package:project2023/check_personal_info.dart';
-import 'package:project2023/login.dart';
 import 'package:project2023/main.dart';
 import 'package:project2023/other_resource.dart';
 import 'package:project2023/personal_info.dart';
@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text("Swallow App"),
+        title: const Text("Swallow App"),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -43,7 +43,6 @@ class _HomeState extends State<Home> {
                           personalInfo = await check_personal_info();
 
                           if (personalInfo == false) {
-                            print('Login, without personal info');
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -67,11 +66,7 @@ class _HomeState extends State<Home> {
                       width: MediaQuery.of(context).size.width * 0.45,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const AppDescription()),
-                          );
+                          Get.to(const AppDescription());
                         },
                         child: const Text("App 簡介"),
                       )),
@@ -108,11 +103,7 @@ class _HomeState extends State<Home> {
                       width: MediaQuery.of(context).size.width * 0.45,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Videos()),
-                          );
+                          Get.to(const Videos());
                         },
                         child: const Text("衛教影片"),
                       )),
@@ -121,11 +112,7 @@ class _HomeState extends State<Home> {
                       width: MediaQuery.of(context).size.width * 0.45,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const OtherResource()),
-                          );
+                          Get.to(const OtherResource());
                         },
                         child: const Text("其他資源"),
                       )),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:project2023/main.dart';
 import 'dart:async';
-import 'login.dart';
 
 class PersonalInfo extends StatefulWidget {
   const PersonalInfo({super.key});
@@ -59,8 +58,9 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       filled: true,
                     ),
                   )),
-              const SizedBox(height: 10,),
-
+              const SizedBox(
+                height: 10,
+              ),
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: TextField(
@@ -79,8 +79,9 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       filled: true,
                     ),
                   )),
-              const SizedBox(height: 10,),
-
+              const SizedBox(
+                height: 10,
+              ),
               GestureDetector(
                 onTap: () {
                   _confirm();
@@ -109,13 +110,13 @@ class _PersonalInfoState extends State<PersonalInfo> {
       ),
     );
   }
-  Future _confirm() async{
+
+  Future _confirm() async {
     await FirebaseFirestore.instance.collection('$userEmail').add({
-      'name':(_nameController.text.trim()),
-      'age':(_ageController.text.trim()),
+      'name': (_nameController.text.trim()),
+      'age': (_ageController.text.trim()),
     });
     personalInfo = true;
     Navigator.pop(context);
   }
 }
-

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:project2023/authenticate/register_page.dart';
 
 import 'package:project2023/authenticate/wrapper.dart';
+import 'package:project2023/main.dart';
 import '../components/text_field.dart';
 import '../components/my_button.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,8 @@ class _SignInPageState extends State<SignInPage> {
         email: emailController.text,
         password: passwordController.text,
       );
-      Get.off(Wrapper());
+      userEmail = emailController.text;
+      Get.off(const Wrapper());
     } on FirebaseAuthException catch (e) {
       debugPrint("error");
       showErrorMessage();
@@ -46,7 +48,7 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 228, 235, 245),
+      backgroundColor: const Color.fromARGB(255, 228, 235, 245),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
