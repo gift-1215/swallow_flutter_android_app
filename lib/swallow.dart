@@ -35,26 +35,6 @@ class _SwallowState extends State<Swallow> {
     ref.putFile(file);
   }
 
-  void _set() async {
-    var x = int.parse(timeRemain);
-    if (x != 0) {
-      x = x - 1;
-      timeRemain = x.toString();
-      setState(() {});
-      _count_down();
-    } else {
-      timeRemain = '2';
-      isRecorded = true;
-      setState(() {});
-    }
-  }
-
-  Future _count_down() async {
-    Timer(const Duration(seconds: 1), () {
-      _set();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,17 +50,23 @@ class _SwallowState extends State<Swallow> {
           child: Column(
         children: [
           ElevatedButton(
-            onPressed: () {},
+            onPressed: selectFile,
             child: const Text("選擇檔案"),
           ),
           if (pickupFile != null)
-            Expanded(
+            SizedBox(
+              height: 50,
               child: Container(
                 color: Colors.green,
                 child: Center(
                   child: Text(pickupFile!.name),
                 ),
               ),
+            ),
+          if (pickupFile != null)
+            ElevatedButton(
+              onPressed: uploadFile,
+              child: const Text("吞嚥分析"),
             ),
           const Text("吞嚥指示"),
         ],
