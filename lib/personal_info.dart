@@ -34,7 +34,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
           child: Column(
             children: [
               const Text(
-                '請先輸入個人資料',
+                '請輸入個人資料',
                 style: TextStyle(fontSize: 30, color: Colors.black),
               ),
               const SizedBox(

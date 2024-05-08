@@ -2,6 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:project2023/personal_info.dart';
 import 'get_user_name.dart';
 import 'package:project2023/main.dart';
 import 'dart:async';
@@ -62,6 +65,11 @@ class _PersonalInfoShowState extends State<PersonalInfoShow> {
                     );
                   },
                 )),
+                ElevatedButton(
+                    onPressed: () {
+                      Get.to(const PersonalInfo());
+                    },
+                    child: Text("編輯個人檔案"))
               ],
             ),
           ),

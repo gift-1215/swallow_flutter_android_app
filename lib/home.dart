@@ -43,20 +43,9 @@ class _HomeState extends State<Home> {
                           personalInfo = await check_personal_info();
 
                           if (personalInfo == false) {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PersonalInfo(),
-                              ),
-                            );
+                            Get.to(const PersonalInfo());
                           } else {
-                            print('have personal info');
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const PersonalInfoShow(),
-                              ),
-                            );
+                            Get.to(const PersonalInfoShow());
                           }
                         },
                         child: const Text("個人資料"),
@@ -71,6 +60,9 @@ class _HomeState extends State<Home> {
                         child: const Text("App 簡介"),
                       )),
                 ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.05,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -93,6 +85,9 @@ class _HomeState extends State<Home> {
                         child: const Text("吞嚥錄音"),
                       )),
                 ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.05,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
