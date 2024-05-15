@@ -5,6 +5,9 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+String realTimeValue = '0';
+String getOnceValue = '0';
+
 class Swallow extends StatefulWidget {
   const Swallow({super.key});
 
@@ -13,9 +16,6 @@ class Swallow extends StatefulWidget {
 }
 
 class _SwallowState extends State<Swallow> {
-  String timeRemain = "2";
-  bool isRecorded = false;
-
   PlatformFile? pickupFile;
   Future selectFile() async {
     final result = await FilePicker.platform.pickFiles();
@@ -28,7 +28,7 @@ class _SwallowState extends State<Swallow> {
   }
 
   Future uploadFile() async {
-    final path = 'file/${pickupFile!.name}';
+    const path = 'file/test0.wav';
     final file = File(pickupFile!.path!);
 
     final ref = FirebaseStorage.instance.ref().child(path);
@@ -57,9 +57,12 @@ class _SwallowState extends State<Swallow> {
             SizedBox(
               height: 50,
               child: Container(
-                color: Colors.green,
+                color: const Color.fromARGB(255, 10, 23, 101),
                 child: Center(
-                  child: Text(pickupFile!.name),
+                  child: Text(
+                    pickupFile!.name,
+                    style: const TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             ),
