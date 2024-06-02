@@ -5,9 +5,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
+import 'package:project2023/final_result.dart';
 import 'dart:async';
 
+import 'package:project2023/test1.dart';
+
 var realTimeValue = '3';
+bool waitingServer = false;
+bool finalans = false;
 String getOnceValue = '0';
 
 class Swallow extends StatefulWidget {
@@ -59,14 +66,21 @@ class _SwallowState extends State<Swallow> {
       String temp = event.snapshot.value.toString();
       debugPrint("temp = $temp");
       if (temp == "0" || temp == "1") {
-        debugPrint("into if");
+        debugPrint('$finalans');
         realTimeValue = temp;
-        setState(() {});
+        waitingServer = false;
         testRef.child("/").set("3");
+        finalans = true;
+        setState(() {});
+        //finalans = false;
       }
     });
 
     Future uploadFile() async {
+      setState(() {
+        waitingServer = true;
+      });
+
       const path = 'file/test0.wav';
       final file = File(pickupFile!.path!);
 
@@ -95,15 +109,28 @@ class _SwallowState extends State<Swallow> {
               ),
             ),
           ),
-        if (true)
+        if (waitingServer == true)
           SizedBox(
             height: 50,
             child: Container(
               color: const Color.fromARGB(255, 10, 23, 101),
+              child: const Center(
+                child: Text(
+                  "分析中",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+          ),
+        if (finalans == true)
+          SizedBox(
+            height: 500,
+            child: Container(
+              color: const Color.fromARGB(255, 10, 23, 101),
               child: Center(
                 child: Text(
-                  realTimeValue,
-                  style: const TextStyle(color: Colors.white),
+                  (final_return + int.parse(realTimeValue)).toString(),
+                  style: const TextStyle(color: Colors.white, fontSize: 300),
                 ),
               ),
             ),

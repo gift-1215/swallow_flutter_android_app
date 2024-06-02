@@ -118,5 +118,6 @@ class _PersonalInfoState extends State<PersonalInfo> {
     });
     personalInfo = true;
     Navigator.pop(context);
+    setState(() {});
   }
 }
