@@ -4,11 +4,11 @@ import 'package:project2023/main.dart';
 
 class GetUserName extends StatelessWidget {
   final String documentId;
-  GetUserName({required this.documentId});
+  const GetUserName({required this.documentId});
 
   @override
   Widget build(BuildContext context) {
-    CollectionReference users = FirebaseFirestore.instance.collection('$userEmail');
+    CollectionReference users = FirebaseFirestore.instance.collection(userEmail);
 
     return FutureBuilder<DocumentSnapshot>(
         future: users.doc(documentId).get(),

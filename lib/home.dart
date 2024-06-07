@@ -3,14 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project2023/app_description.dart';
 import 'package:project2023/check_personal_info.dart';
+import 'package:project2023/explain.dart';
 import 'package:project2023/main.dart';
 import 'package:project2023/other_resource.dart';
 import 'package:project2023/personal_info.dart';
 import 'package:project2023/personal_info_show.dart';
-import 'package:project2023/swallow.dart';
 import 'package:project2023/test1.dart';
 import 'package:project2023/video_player.dart';
-import 'package:project2023/videos.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -25,7 +24,10 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Swallow App"),
+        title: const Text(
+          "Swallow App",
+          style: TextStyle(fontSize: 30, color: Colors.black),
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -50,7 +52,10 @@ class _HomeState extends State<Home> {
                             Get.to(const PersonalInfoShow());
                           }
                         },
-                        child: const Text("個人資料"),
+                        child: const Text(
+                          "個人資料",
+                          style: TextStyle(fontSize: 30, color: Colors.black),
+                        ),
                       )),
                   SizedBox(
                       height: MediaQuery.of(context).size.height * 0.23,
@@ -59,7 +64,10 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Get.to(const AppDescription());
                         },
-                        child: const Text("App 簡介"),
+                        child: const Text(
+                          "App 簡介",
+                          style: TextStyle(fontSize: 30, color: Colors.black),
+                        ),
                       )),
                 ],
               ),
@@ -74,8 +82,13 @@ class _HomeState extends State<Home> {
                       height: MediaQuery.of(context).size.height * 0.23,
                       width: MediaQuery.of(context).size.width * 0.45,
                       child: ElevatedButton(
-                        onPressed: () {},
-                        child: const Text("量表"),
+                        onPressed: () {
+                          Get.to(const Explain());
+                        },
+                        child: const Text(
+                          "量表說明",
+                          style: TextStyle(fontSize: 30, color: Colors.black),
+                        ),
                       )),
                   SizedBox(
                       height: MediaQuery.of(context).size.height * 0.23,
@@ -84,7 +97,10 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Get.to(const Test1());
                         },
-                        child: const Text("吞嚥檢測"),
+                        child: const Text(
+                          "吞嚥檢測",
+                          style: TextStyle(fontSize: 30, color: Colors.black),
+                        ),
                       )),
                 ],
               ),
@@ -102,7 +118,10 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Get.to(const VideoPlayerWidget());
                         },
-                        child: const Text("衛教影片"),
+                        child: const Text(
+                          "衛教影片",
+                          style: TextStyle(fontSize: 30, color: Colors.black),
+                        ),
                       )),
                   SizedBox(
                       height: MediaQuery.of(context).size.height * 0.23,
@@ -111,7 +130,10 @@ class _HomeState extends State<Home> {
                         onPressed: () {
                           Get.to(const OtherResource());
                         },
-                        child: const Text("其他資源"),
+                        child: const Text(
+                          "其他資源",
+                          style: TextStyle(fontSize: 30, color: Colors.black),
+                        ),
                       )),
                 ],
               ),

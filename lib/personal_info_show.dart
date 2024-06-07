@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -25,7 +24,7 @@ class _PersonalInfoShowState extends State<PersonalInfoShow> {
     userEmail = user!.email!;
 
     await FirebaseFirestore.instance
-        .collection('$userEmail')
+        .collection(userEmail)
         .get()
         .then((snapshot) => snapshot.docs.forEach((document) {
               print(document.reference);
@@ -45,7 +44,7 @@ class _PersonalInfoShowState extends State<PersonalInfoShow> {
       appBar: AppBar(
         title: Text(
           '$userEmail已登入',
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Colors.green,
@@ -69,7 +68,7 @@ class _PersonalInfoShowState extends State<PersonalInfoShow> {
                     onPressed: () {
                       Get.to(const PersonalInfo());
                     },
-                    child: Text("編輯個人檔案"))
+                    child: const Text("編輯個人檔案"))
               ],
             ),
           ),

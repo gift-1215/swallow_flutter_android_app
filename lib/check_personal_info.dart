@@ -3,17 +3,15 @@ import 'package:project2023/main.dart';
 
 Future<bool> check_personal_info() async {
   await FirebaseFirestore.instance
-      .collection('$userEmail')
+      .collection(userEmail)
       .get()
       .then((snapshot) => snapshot.docs.forEach((document) {
-            if (document.exists)
+            if (document.exists) {
               personalInfo = true;
-            else
+            } else {
               personalInfo = false;
+            }
 
           }));
-  ;
-  print('personal info:');
-  print(personalInfo);
   return personalInfo;
 }

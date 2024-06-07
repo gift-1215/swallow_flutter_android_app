@@ -19,6 +19,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -112,7 +113,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
   }
 
   Future _confirm() async {
-    await FirebaseFirestore.instance.collection('$userEmail').add({
+    await FirebaseFirestore.instance.collection(userEmail).add({
       'name': (_nameController.text.trim()),
       'age': (_ageController.text.trim()),
     });
