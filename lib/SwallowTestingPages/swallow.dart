@@ -171,7 +171,7 @@ class _SwallowState extends State<Swallow> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    final_return = final_return + int.parse(realTimeValue);
+                    //final_return = final_return + int.parse(realTimeValue);
                     debugPrint('final_return after Swallow $final_return');
                     Get.offAll(const SwallowResult());
                   },

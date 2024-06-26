@@ -38,7 +38,7 @@ class SwallowResult extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                final_return.toString(),
+                (final_return + int.parse(realTimeValue)).toString(),
                 style: const TextStyle(fontSize: 100),
               ),
               const Text(

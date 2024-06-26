@@ -41,8 +41,14 @@ class _HomeState extends State<Home> {
                 children: [
                   SizedBox(
                       height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 0.45,
+                      width: MediaQuery.of(context).size.width * 0.43,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            shadowColor: Color.fromARGB(255, 218, 218, 218),
+                            elevation: 10.0),
                         onPressed: () async {
                           personalInfo = await check_personal_info();
 
@@ -59,13 +65,19 @@ class _HomeState extends State<Home> {
                       )),
                   SizedBox(
                       height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 0.45,
+                      width: MediaQuery.of(context).size.width * 0.43,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            shadowColor: Color.fromARGB(255, 218, 218, 218),
+                            elevation: 10.0),
                         onPressed: () {
                           Get.to(const AppDescription());
                         },
                         child: const Text(
-                          "App 簡介",
+                          "App簡介",
                           style: TextStyle(fontSize: 30, color: Colors.black),
                         ),
                       )),
@@ -80,8 +92,14 @@ class _HomeState extends State<Home> {
                 children: [
                   SizedBox(
                       height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 0.45,
+                      width: MediaQuery.of(context).size.width * 0.43,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            shadowColor: Color.fromARGB(255, 218, 218, 218),
+                            elevation: 10.0),
                         onPressed: () {
                           Get.to(const Explain());
                         },
@@ -92,8 +110,14 @@ class _HomeState extends State<Home> {
                       )),
                   SizedBox(
                       height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 0.45,
+                      width: MediaQuery.of(context).size.width * 0.43,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            shadowColor: Color.fromARGB(255, 218, 218, 218),
+                            elevation: 10.0),
                         onPressed: () {
                           Get.to(const VideoPlayerWidget());
                         },
@@ -113,8 +137,14 @@ class _HomeState extends State<Home> {
                 children: [
                   SizedBox(
                       height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 0.45,
+                      width: MediaQuery.of(context).size.width * 0.43,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            shadowColor: Color.fromARGB(255, 218, 218, 218),
+                            elevation: 10.0),
                         onPressed: () {
                           Get.off(const VideoPlayerWidget());
                         },
@@ -125,8 +155,14 @@ class _HomeState extends State<Home> {
                       )),
                   SizedBox(
                       height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 0.45,
+                      width: MediaQuery.of(context).size.width * 0.43,
                       child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            shadowColor: Color.fromARGB(255, 218, 218, 218),
+                            elevation: 10.0),
                         onPressed: () {
                           Get.to(const OtherResource());
                         },
