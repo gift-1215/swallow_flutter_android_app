@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
-import 'package:project2023/swallow.dart';
-import 'package:project2023/test1.dart';
+import 'package:project2023/SwallowTestingPages/test2_result.dart';
+import 'package:project2023/authenticate/wrapper.dart';
+import 'package:project2023/SwallowTestingPages/swallow.dart';
+import 'package:project2023/SwallowTestingPages/test1.dart';
 
 bool? isChecked10 = false;
 bool? isChecked11 = false;
@@ -65,7 +65,8 @@ var q1 = -1,
     q7 = -1,
     q8 = -1,
     q9 = -1,
-    q10 = -1;
+    q10 = -1,
+    test2_result = 0;
 
 class Test2 extends StatefulWidget {
   const Test2({super.key});
@@ -79,6 +80,20 @@ class _Test2State extends State<Test2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            final_return = int.parse(text);
+            Get.offAll(const Test1());
+          },
+        ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.offAll(const Wrapper());
+              },
+              icon: const Icon(Icons.home))
+        ],
         title: const Text(
           '吞嚥能力評估量表',
           style: TextStyle(color: Colors.white),
@@ -1533,21 +1548,22 @@ class _Test2State extends State<Test2> {
                                 q8 != -1 &&
                                 q9 != -1 &&
                                 q10 != -1) {
-                              if (q1 +
-                                      q2 +
-                                      q3 +
-                                      q4 +
-                                      q5 +
-                                      q6 +
-                                      q7 +
-                                      q8 +
-                                      q9 +
-                                      q10 >=
-                                  3) {
+                              test2_result = q1 +
+                                  q2 +
+                                  q3 +
+                                  q4 +
+                                  q5 +
+                                  q6 +
+                                  q7 +
+                                  q8 +
+                                  q9 +
+                                  q10;
+                              if (test2_result >= 3) {
                                 final_return += 1;
                               }
-                              debugPrint("final return now:$final_return");
-                              Get.to(const Swallow());
+                              debugPrint(
+                                  "final return after test2:$final_return");
+                              Get.offAll(const Test2Result());
                             } else {
                               showDialog(
                                   context: context,

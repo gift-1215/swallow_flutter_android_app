@@ -8,8 +8,8 @@ import 'package:project2023/main.dart';
 import 'package:project2023/other_resource.dart';
 import 'package:project2023/personal_info.dart';
 import 'package:project2023/personal_info_show.dart';
-import 'package:project2023/test1.dart';
-import 'package:project2023/video_player.dart';
+import 'package:project2023/SwallowTestingPages/test1.dart';
+import 'package:project2023/SwallowTestingPages/video_player.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
                       width: MediaQuery.of(context).size.width * 0.45,
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.to(const Test1());
+                          Get.to(const VideoPlayerWidget());
                         },
                         child: const Text(
                           "吞嚥檢測",
@@ -116,7 +116,7 @@ class _HomeState extends State<Home> {
                       width: MediaQuery.of(context).size.width * 0.45,
                       child: ElevatedButton(
                         onPressed: () {
-                          Get.to(const VideoPlayerWidget());
+                          Get.off(const VideoPlayerWidget());
                         },
                         child: const Text(
                           "衛教影片",
