@@ -89,7 +89,7 @@ class _Test1State extends State<Test1> {
           child: Column(
             children: [
               const Text(
-                '請在30秒內盡可能的吞嚥',
+                '請依照影片的動作在30秒內盡可能吞口水，',
                 style: TextStyle(fontSize: 25),
               ),
               const SizedBox(
@@ -132,7 +132,7 @@ class _Test1State extends State<Test1> {
                     controller: _controller,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: '次數',
+                      labelText: '請填寫次數',
                     ),
                     onSubmitted: (String value) {
                       setState(() {

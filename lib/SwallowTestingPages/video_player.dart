@@ -104,7 +104,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                     )
                   ],
                 )
-              : const Text('no video initialized')),
+              : SizedBox(
+                  height: 150, width: 150, child: CircularProgressIndicator())),
     );
   }
 }

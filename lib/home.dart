@@ -23,6 +23,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text(
           "Swallow App",
@@ -86,48 +87,24 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 0.43,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            shadowColor: Color.fromARGB(255, 218, 218, 218),
-                            elevation: 10.0),
-                        onPressed: () {
-                          Get.to(const Explain());
-                        },
-                        child: const Text(
-                          "量表說明",
-                          style: TextStyle(fontSize: 30, color: Colors.black),
-                        ),
-                      )),
-                  SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 0.43,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            shadowColor: Color.fromARGB(255, 218, 218, 218),
-                            elevation: 10.0),
-                        onPressed: () {
-                          Get.to(const VideoPlayerWidget());
-                        },
-                        child: const Text(
-                          "吞嚥檢測",
-                          style: TextStyle(fontSize: 30, color: Colors.black),
-                        ),
-                      )),
-                ],
-              ),
+              SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.23,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 233, 215, 205),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0)),
+                        shadowColor: Color.fromARGB(255, 218, 218, 218),
+                        elevation: 10.0),
+                    onPressed: () {
+                      Get.to(const VideoPlayerWidget());
+                    },
+                    child: const Text(
+                      "吞嚥檢測",
+                      style: TextStyle(fontSize: 40, color: Colors.black),
+                    ),
+                  )),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.05,
               ),

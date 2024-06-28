@@ -43,7 +43,7 @@ class Test1Result extends StatelessWidget {
               ),
               Text(
                 '吞嚥次數：$final_return',
-                style: TextStyle(fontSize: 30),
+                style: const TextStyle(fontSize: 30),
               ),
               const SizedBox(
                 height: 20,
