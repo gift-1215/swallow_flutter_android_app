@@ -5,6 +5,7 @@ import 'package:project2023/app_description.dart';
 import 'package:project2023/check_personal_info.dart';
 import 'package:project2023/explain.dart';
 import 'package:project2023/main.dart';
+import 'package:project2023/online_video.dart';
 import 'package:project2023/other_resource.dart';
 import 'package:project2023/personal_info.dart';
 import 'package:project2023/personal_info_show.dart';
@@ -123,10 +124,10 @@ class _HomeState extends State<Home> {
                             shadowColor: Color.fromARGB(255, 218, 218, 218),
                             elevation: 10.0),
                         onPressed: () {
-                          Get.off(const VideoPlayerWidget());
+                          Get.off(const OnlineVideoPage());
                         },
                         child: const Text(
-                          "衛教影片",
+                          "健口操",
                           style: TextStyle(fontSize: 30, color: Colors.black),
                         ),
                       )),

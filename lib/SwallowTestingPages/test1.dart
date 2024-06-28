@@ -89,7 +89,8 @@ class _Test1State extends State<Test1> {
           child: Column(
             children: [
               const Text(
-                '請依照影片的動作在30秒內盡可能吞口水，',
+                '請依照影片的動作\n在30秒內盡可能吞口水',
+                textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 25),
               ),
               const SizedBox(

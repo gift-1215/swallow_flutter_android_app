@@ -32,7 +32,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back,
+              size: MediaQuery.of(context).size.height * 0.06),
           onPressed: () {
             Get.offAll(const Wrapper());
             _videoPlayerController.pause();
@@ -41,23 +42,37 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         actions: [
           IconButton(
               onPressed: () {
-                Get.offAll(Wrapper());
+                Get.offAll(const Wrapper());
                 _videoPlayerController.pause();
               },
-              icon: const Icon(Icons.home))
+              icon: Icon(
+                Icons.home,
+                size: MediaQuery.of(context).size.height * 0.06,
+              ))
         ],
-        title: const Text(
-          '請先看完吞嚥指示說明',
-          style: TextStyle(color: Colors.white),
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+        title: Text(
+          '吞嚥說明影片',
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: MediaQuery.of(context).size.height * 0.047),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 72, 107, 153),
       ),
       body: Center(
           child: _videoPlayerController.value.isInitialized
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Text(
+                      "請務必先看完影片\n再開始測試",
+                      style: TextStyle(fontSize: 35),
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
                     AspectRatio(
                       aspectRatio: _videoPlayerController.value.aspectRatio,
                       child: VideoPlayer(_videoPlayerController),
@@ -69,18 +84,30 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Color.fromARGB(255, 195, 230, 247)),
                             onPressed: () {
                               _videoPlayerController.pause();
                             },
-                            child: const Icon(Icons.pause)),
+                            child: const Icon(
+                              Icons.pause,
+                              size: 50,
+                            )),
                         const SizedBox(
-                          width: 5,
+                          width: 10,
                         ),
                         ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor:
+                                    Color.fromARGB(255, 195, 230, 247)),
                             onPressed: () {
                               _videoPlayerController.play();
                             },
-                            child: const Icon(Icons.play_arrow)),
+                            child: const Icon(
+                              Icons.play_arrow,
+                              size: 50,
+                            )),
                       ],
                     ),
                     const SizedBox(
@@ -98,7 +125,8 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                             side: BorderSide(color: Colors.red, width: 3)),
                       ),
                       child: Text(
-                        "    我瞭解了!!\n開始RSST測試",
+                        "我瞭解了!!\n開始RSST測試",
+                        textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 30, color: Colors.white),
                       ),
                     )
