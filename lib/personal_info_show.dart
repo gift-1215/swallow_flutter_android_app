@@ -42,6 +42,7 @@ class _PersonalInfoShowState extends State<PersonalInfoShow> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         title: Text(
           '$userEmail已登入',
           style: const TextStyle(color: Colors.white),
@@ -51,26 +52,46 @@ class _PersonalInfoShowState extends State<PersonalInfoShow> {
       ),
       body: Center(
         child: SingleChildScrollView(
-          child: SizedBox(
-            height: 230,
-            child: Column(
-              children: [
-                Expanded(
-                    child: FutureBuilder(
-                  future: getDocId(),
-                  builder: (context, snapshot) {
+          child: Column(
+            children: [
+              FutureBuilder(
+                future: getDocId(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done) {
                     return GetUserName(
                       documentId: docIDs[0],
                     );
+                  } else {
+                    return const SizedBox(
+                        height: 10,
+                        width: 100,
+                        child: LinearProgressIndicator());
+                  }
+                },
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.13,
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Get.to(const PersonalInfo());
                   },
-                )),
-                ElevatedButton(
-                    onPressed: () {
-                      Get.to(const PersonalInfo());
-                    },
-                    child: const Text("編輯個人檔案"))
-              ],
-            ),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 183, 215, 241),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0)),
+                      shadowColor: Color.fromARGB(255, 218, 218, 218),
+                      elevation: 10.0),
+                  child: const Text(
+                    '編輯個人檔案',
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),

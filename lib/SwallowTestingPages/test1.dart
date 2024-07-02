@@ -8,8 +8,8 @@ import 'package:project2023/SwallowTestingPages/test2.dart';
 import 'package:project2023/SwallowTestingPages/video_player.dart';
 
 bool? isChecked = true;
-var final_return = 0;
 String text = '';
+var swallowTimes = 0;
 
 class Test1 extends StatefulWidget {
   const Test1({super.key});
@@ -65,33 +65,41 @@ class _Test1State extends State<Test1> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back,
+              size: MediaQuery.of(context).size.height * 0.06),
           onPressed: () {
-            Get.off(const VideoPlayerWidget());
+            Get.offAll(const VideoPlayerWidget());
           },
         ),
         actions: [
           IconButton(
               onPressed: () {
+                final_return = 0;
                 Get.offAll(const Wrapper());
               },
-              icon: const Icon(Icons.home))
+              icon: Icon(
+                Icons.home,
+                size: MediaQuery.of(context).size.height * 0.06,
+              ))
         ],
-        title: const Text(
-          '吞嚥自評',
-          style: TextStyle(color: Colors.white),
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+        title: Text(
+          'RSST測試',
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: MediaQuery.of(context).size.height * 0.040),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 72, 107, 153),
       ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
               const Text(
-                '請依照影片的動作\n在30秒內盡可能吞口水',
+                '請依照影片指示\n在30秒內盡可能吞口水',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 25),
+                style: TextStyle(fontSize: 35),
               ),
               const SizedBox(
                 height: 50,
@@ -106,9 +114,15 @@ class _Test1State extends State<Test1> {
                   ElevatedButton(
                     onPressed: () {
                       if (_start == 30) {
+                        setState(() {
+                          _start = 29;
+                        });
+
                         startTimer();
                       } else {
-                        _start = 0;
+                        setState(() {
+                          _start = 0;
+                        });
                       }
                       //_timer.reactive;
                     },
@@ -128,71 +142,31 @@ class _Test1State extends State<Test1> {
                 height: 50,
               ),
               SizedBox(
-                  width: 300,
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.1,
                   child: TextField(
                     controller: _controller,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: '請填寫次數',
+                      labelText: '請填寫吞嚥次數',
+                      labelStyle: TextStyle(fontSize: 25),
                     ),
                     onSubmitted: (String value) {
                       setState(() {
                         text = _controller.text;
-                        final_return = int.parse(text);
+                        swallowTimes = int.parse(text);
+                        if (swallowTimes < 3) {
+                          final_return += 1;
+                        }
                       });
                     },
                   )),
-              /*Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      const Text(
-                        '成功',
-                        style: TextStyle(fontSize: 30),
-                      ),
-                      Checkbox(
-                        tristate: false,
-                        value: isChecked,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            isChecked = value;
-                            final_return = 0;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    width: 50,
-                  ),
-                  Column(
-                    children: [
-                      const Text(
-                        '失敗',
-                        style: TextStyle(fontSize: 30),
-                      ),
-                      Checkbox(
-                        tristate: false,
-                        value: !isChecked!,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            isChecked = !value!;
-                            final_return = 1;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),*/
               const SizedBox(
                 height: 100,
               ),
               ElevatedButton(
                   onPressed: () {
                     if (text != '') {
-                      print("final return after test1 $final_return");
                       Get.to(const Test1Result());
                     } else {
                       showDialog(
@@ -200,7 +174,7 @@ class _Test1State extends State<Test1> {
                           builder: (BuildContext context) {
                             return const AlertDialog(
                               //elevation 可以改變陰影深度
-                              elevation: 0,
+                              elevation: 10,
                               title: Text(
                                 "請填妥吞嚥次數",
                                 textAlign: TextAlign.center,

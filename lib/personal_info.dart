@@ -23,6 +23,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         title: const Text(
           '個人資料輸入',
           style: TextStyle(color: Colors.white),
@@ -81,15 +82,15 @@ class _PersonalInfoState extends State<PersonalInfo> {
                     ),
                   )),
               const SizedBox(
-                height: 10,
+                height: 30,
               ),
               GestureDetector(
                 onTap: () {
                   _confirm();
                 },
                 child: Container(
-                  width: double.infinity,
-                  height: 45,
+                  height: MediaQuery.of(context).size.height * 0.08,
+                  width: MediaQuery.of(context).size.width * 0.4,
                   decoration: BoxDecoration(
                     color: Colors.blue,
                     borderRadius: BorderRadius.circular(10),
@@ -98,9 +99,9 @@ class _PersonalInfoState extends State<PersonalInfo> {
                     child: Text(
                       "確認",
                       style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 30),
                     ),
                   ),
                 ),

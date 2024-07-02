@@ -56,7 +56,7 @@ class _SwallowState extends State<Swallow> {
                 icon: const Icon(Icons.home))
           ],
           title: const Text(
-            '量表結果',
+            '吞嚥錄音',
             style: TextStyle(color: Colors.white),
           ),
           iconTheme: const IconThemeData(color: Colors.white),
@@ -171,8 +171,6 @@ class _SwallowState extends State<Swallow> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    //final_return = final_return + int.parse(realTimeValue);
-                    debugPrint('final_return after Swallow $final_return');
                     Get.offAll(const SwallowResult());
                   },
                   child: const Text('完成，查看最終結果')),

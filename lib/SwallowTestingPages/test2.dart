@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:project2023/SwallowTestingPages/test1.dart';
 import 'package:project2023/SwallowTestingPages/test2_result.dart';
 import 'package:project2023/authenticate/wrapper.dart';
 import 'package:project2023/SwallowTestingPages/swallow.dart';
-import 'package:project2023/SwallowTestingPages/test1.dart';
 
 bool? isChecked10 = false;
 bool? isChecked11 = false;
@@ -68,6 +68,8 @@ var q1 = -1,
     q10 = -1,
     test2_result = 0;
 
+var final_return = 0;
+
 class Test2 extends StatefulWidget {
   const Test2({super.key});
 
@@ -81,29 +83,40 @@ class _Test2State extends State<Test2> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back,
+              size: MediaQuery.of(context).size.height * 0.06),
           onPressed: () {
-            final_return = int.parse(text);
-            Get.offAll(const Test1());
+            final_return = 0;
+            Get.offAll(const Wrapper());
           },
         ),
         actions: [
           IconButton(
               onPressed: () {
+                final_return = 0;
                 Get.offAll(const Wrapper());
               },
-              icon: const Icon(Icons.home))
+              icon: Icon(
+                Icons.home,
+                size: MediaQuery.of(context).size.height * 0.06,
+              ))
         ],
-        title: const Text(
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+        title: Text(
           '吞嚥能力評估量表',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: MediaQuery.of(context).size.height * 0.040),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.green,
+        backgroundColor: const Color.fromARGB(255, 72, 107, 153),
       ),
       body: Center(
         child: Column(
           children: [
+            const SizedBox(
+              height: 20,
+            ),
             const Text(
               '0 = 沒有問題\n4 = 問題嚴重',
               style: TextStyle(fontSize: 30),
@@ -1535,52 +1548,65 @@ class _Test2State extends State<Test2> {
                     const SizedBox(
                       height: 50,
                     ),
-                    ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            if (q1 != -1 &&
-                                q2 != -1 &&
-                                q3 != -1 &&
-                                q4 != -1 &&
-                                q5 != -1 &&
-                                q6 != -1 &&
-                                q7 != -1 &&
-                                q8 != -1 &&
-                                q9 != -1 &&
-                                q10 != -1) {
-                              test2_result = q1 +
-                                  q2 +
-                                  q3 +
-                                  q4 +
-                                  q5 +
-                                  q6 +
-                                  q7 +
-                                  q8 +
-                                  q9 +
-                                  q10;
-                              if (test2_result >= 3) {
-                                final_return += 1;
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.08,
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              if (q1 != -1 &&
+                                  q2 != -1 &&
+                                  q3 != -1 &&
+                                  q4 != -1 &&
+                                  q5 != -1 &&
+                                  q6 != -1 &&
+                                  q7 != -1 &&
+                                  q8 != -1 &&
+                                  q9 != -1 &&
+                                  q10 != -1) {
+                                test2_result = q1 +
+                                    q2 +
+                                    q3 +
+                                    q4 +
+                                    q5 +
+                                    q6 +
+                                    q7 +
+                                    q8 +
+                                    q9 +
+                                    q10;
+                                if (test2_result >= 3) {
+                                  final_return = 1;
+                                } else {
+                                  final_return = 0;
+                                }
+                                debugPrint(
+                                    "final return after test2:$final_return");
+                                Get.offAll(const Test2Result());
+                              } else {
+                                showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return const AlertDialog(
+                                        //elevation 可以改變陰影深度
+                                        elevation: 10,
+                                        title: Text("每個問題都要回答喔～"),
+                                      );
+                                    });
                               }
-                              debugPrint(
-                                  "final return after test2:$final_return");
-                              Get.offAll(const Test2Result());
-                            } else {
-                              showDialog(
-                                  context: context,
-                                  builder: (BuildContext context) {
-                                    return const AlertDialog(
-                                      //elevation 可以改變陰影深度
-                                      elevation: 0,
-                                      title: Text("每個問題都要回答喔～"),
-                                    );
-                                  });
-                            }
-                          });
-                        },
-                        child: const Text(
-                          '下一步',
-                          style: TextStyle(fontSize: 30),
-                        )),
+                            });
+                          },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor:
+                                  const Color.fromARGB(255, 183, 215, 241),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.0)),
+                              shadowColor: Color.fromARGB(255, 218, 218, 218),
+                              elevation: 10.0),
+                          child: const Text(
+                            '完成',
+                            style: TextStyle(fontSize: 30),
+                          )),
+                    ),
                     const SizedBox(
                       height: 50,
                     ),

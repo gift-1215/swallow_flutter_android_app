@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project2023/SwallowTestingPages/test2_result.dart';
 import 'package:project2023/authenticate/wrapper.dart';
 import 'package:project2023/SwallowTestingPages/test1.dart';
 import 'package:video_player/video_player.dart';
@@ -35,7 +36,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           icon: Icon(Icons.arrow_back,
               size: MediaQuery.of(context).size.height * 0.06),
           onPressed: () {
-            Get.offAll(const Wrapper());
+            Get.offAll(const Test2Result());
             _videoPlayerController.pause();
           },
         ),
@@ -119,13 +120,13 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                         _videoPlayerController.pause();
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 35, 74, 75),
+                        backgroundColor: Color.fromARGB(255, 21, 31, 77),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(3.0),
-                            side: BorderSide(color: Colors.red, width: 3)),
+                            borderRadius: BorderRadius.circular(4.0),
+                            side: BorderSide(color: Colors.red, width: 4)),
                       ),
                       child: Text(
-                        "我瞭解了!!\n開始RSST測試",
+                        "我看完了!\n開始RSST測試",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 30, color: Colors.white),
                       ),

@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:project2023/SwallowTestingPages/test2.dart';
 import 'package:project2023/app_description.dart';
 import 'package:project2023/check_personal_info.dart';
-import 'package:project2023/explain.dart';
 import 'package:project2023/main.dart';
 import 'package:project2023/online_video.dart';
 import 'package:project2023/other_resource.dart';
@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
         toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text(
-          "Swallow App",
+          "手持自評式吞嚥檢測",
           style: TextStyle(fontSize: 30, color: Colors.black),
         ),
       ),
@@ -99,7 +99,7 @@ class _HomeState extends State<Home> {
                         shadowColor: Color.fromARGB(255, 218, 218, 218),
                         elevation: 10.0),
                     onPressed: () {
-                      Get.to(const VideoPlayerWidget());
+                      Get.offAll(const Test2());
                     },
                     child: const Text(
                       "吞嚥檢測",
