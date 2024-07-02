@@ -43,7 +43,10 @@ class _SwallowState extends State<Swallow> {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: Icon(
+              Icons.arrow_back,
+              size: MediaQuery.of(context).size.height * 0.06,
+            ),
             onPressed: () {
               Get.offAll(const Test2Result());
             },
@@ -53,14 +56,20 @@ class _SwallowState extends State<Swallow> {
                 onPressed: () {
                   Get.offAll(const Wrapper());
                 },
-                icon: const Icon(Icons.home))
+                icon: Icon(
+                  Icons.home,
+                  size: MediaQuery.of(context).size.height * 0.06,
+                ))
           ],
-          title: const Text(
+          toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+          title: Text(
             '吞嚥錄音',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: MediaQuery.of(context).size.height * 0.040),
           ),
           iconTheme: const IconThemeData(color: Colors.white),
-          backgroundColor: Colors.green,
+          backgroundColor: const Color.fromARGB(255, 72, 107, 153),
         ),
         body: FutureBuilder(
           future: _fApp,
@@ -107,9 +116,22 @@ class _SwallowState extends State<Swallow> {
         child: SingleChildScrollView(
       child: Column(
         children: [
-          ElevatedButton(
-            onPressed: selectFile,
-            child: const Text("選擇檔案"),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.13,
+            width: MediaQuery.of(context).size.width * 0.7,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 183, 215, 241),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0)),
+                  shadowColor: const Color.fromARGB(255, 218, 218, 218),
+                  elevation: 10.0),
+              onPressed: selectFile,
+              child: const Text(
+                "選擇檔案",
+                style: TextStyle(fontSize: 30),
+              ),
+            ),
           ),
           if (pickupFile != null)
             SizedBox(
