@@ -24,12 +24,30 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        /*
+        actions: <Widget>[
+          Image(
+            height: MediaQuery.of(context).size.height * 0.06,
+            image: AssetImage('assets/ncku_logo.PNG'),
+            fit: BoxFit.cover,
+          ),
+        ],
+        
         title: const Text(
-          "手持自評式吞嚥檢測",
+          "手持式吞嚥檢測",
           style: TextStyle(fontSize: 30, color: Colors.black),
         ),
+        */
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/ncku_logo.PNG'),
+              //fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        toolbarHeight: MediaQuery.of(context).size.height * 0.1,
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: Center(
         child: SingleChildScrollView(
