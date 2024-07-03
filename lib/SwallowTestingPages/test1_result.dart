@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:project2023/SwallowTestingPages/swallow.dart';
 import 'package:project2023/SwallowTestingPages/test1.dart';
 import 'package:project2023/SwallowTestingPages/test2.dart';
+import 'package:project2023/SwallowTestingPages/video_player.dart';
 import 'package:project2023/authenticate/wrapper.dart';
 
 class Test1Result extends StatelessWidget {
@@ -21,7 +22,7 @@ class Test1Result extends StatelessWidget {
               text = '';
               if (swallowTimes < 3) final_return -= 1;
               swallowTimes = 0;
-              Get.offAll(const Test1());
+              Get.offAll(const VideoPlayerWidget());
             },
           ),
           actions: [

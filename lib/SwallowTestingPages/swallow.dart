@@ -11,7 +11,9 @@ import 'dart:async';
 
 import 'package:project2023/SwallowTestingPages/test1.dart';
 import 'package:project2023/SwallowTestingPages/test2_result.dart';
+import 'package:project2023/SwallowTestingPages/video_player.dart';
 import 'package:project2023/authenticate/wrapper.dart';
+import 'package:video_player/video_player.dart';
 
 var realTimeValue = '3';
 bool waitingServer = false;
@@ -48,7 +50,7 @@ class _SwallowState extends State<Swallow> {
               size: MediaQuery.of(context).size.height * 0.06,
             ),
             onPressed: () {
-              Get.offAll(const Test2Result());
+              Get.offAll(const VideoPlayerWidget());
             },
           ),
           actions: [
@@ -116,45 +118,85 @@ class _SwallowState extends State<Swallow> {
         child: SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.13,
-            width: MediaQuery.of(context).size.width * 0.7,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(255, 183, 215, 241),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0)),
-                  shadowColor: const Color.fromARGB(255, 218, 218, 218),
-                  elevation: 10.0),
-              onPressed: selectFile,
-              child: const Text(
-                "選擇檔案",
-                style: TextStyle(fontSize: 30),
-              ),
-            ),
-          ),
-          if (pickupFile != null)
-            SizedBox(
-              height: 50,
-              child: Container(
-                color: const Color.fromARGB(255, 10, 23, 101),
-                child: Center(
-                  child: Text(
-                    pickupFile!.name,
-                    style: const TextStyle(color: Colors.white),
+          if (waitingServer != true)
+            Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.13,
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 183, 215, 241),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0)),
+                        shadowColor: const Color.fromARGB(255, 218, 218, 218),
+                        elevation: 10.0),
+                    onPressed: selectFile,
+                    child: const Text(
+                      "選擇檔案",
+                      style: TextStyle(fontSize: 30),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
           if (pickupFile != null)
-            ElevatedButton(
-              onPressed: uploadFile,
-              child: const Text("吞嚥分析"),
+            Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: Container(
+                    color: const Color.fromARGB(255, 10, 23, 101),
+                    child: Center(
+                      child: Text(
+                        pickupFile!.name,
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          if (pickupFile != null && waitingServer == false)
+            Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.13,
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: ElevatedButton(
+                    onPressed: uploadFile,
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            const Color.fromARGB(255, 183, 215, 241),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0)),
+                        shadowColor: const Color.fromARGB(255, 218, 218, 218),
+                        elevation: 10.0),
+                    child: const Text(
+                      "吞嚥分析",
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                ),
+              ],
             ),
           if (waitingServer == true)
             SizedBox(
               height: 50,
               child: Container(
+                width: MediaQuery.of(context).size.width * 0.7,
                 color: const Color.fromARGB(255, 10, 23, 101),
                 child: const Center(
                   child: Text(
@@ -165,69 +207,86 @@ class _SwallowState extends State<Swallow> {
               ),
             ),
           if ((int.parse(realTimeValue)) < 2 && waitingServer == false)
-            SizedBox(
-              height: 350,
-              child: Container(
-                color: const Color.fromARGB(255, 10, 23, 101),
-                child: Center(
-                  child: Column(
-                    children: [
-                      const Text(
-                        'AI 評測結果：',
-                        style: TextStyle(color: Colors.white, fontSize: 30),
-                      ),
-                      Text(
-                        realTimeValue,
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 200),
-                      ),
-                    ],
-                  ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 20,
                 ),
-              ),
+                const Text(
+                  'AI 評測結果：',
+                  style: TextStyle(color: Colors.black, fontSize: 30),
+                ),
+                Text(
+                  realTimeValue,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: MediaQuery.of(context).size.width * 0.4),
+                ),
+              ],
             ),
-          Column(
+          if ((int.parse(realTimeValue)) < 2 && waitingServer == false)
+            Column(
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.13,
+                  width: MediaQuery.of(context).size.width * 0.7,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 183, 215, 241),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0)),
+                          shadowColor: const Color.fromARGB(255, 218, 218, 218),
+                          elevation: 10.0),
+                      onPressed: () {
+                        Get.offAll(const SwallowResult());
+                      },
+                      child: const Text(
+                        '完成\n查看最終結果',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 30),
+                      )),
+                ),
+              ],
+            ),
+          const Column(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
-              ElevatedButton(
-                  onPressed: () {
-                    Get.offAll(const SwallowResult());
-                  },
-                  child: const Text('完成，查看最終結果')),
-              const SizedBox(
-                height: 20,
-              ),
-              const Text(
+              Text(
                 "吞嚥指示",
                 style: TextStyle(fontSize: 30),
               ),
-              const Text(
+              Text(
                 "1.請將吞嚥錄製器材插上手機充電孔",
                 style: TextStyle(fontSize: 20),
               ),
-              const Text(
+              Text(
                 "2.將貼片靠緊脖子吞嚥處",
                 style: TextStyle(fontSize: 20),
               ),
-              const Text(
+              Text(
                 "3.按下開始與結束，錄製一秒的吞嚥聲",
                 style: TextStyle(fontSize: 20),
               ),
-              const Text(
+              Text(
                 "4.返回吞嚥App，選擇錄製的wav檔案",
                 style: TextStyle(fontSize: 20),
               ),
-              const Text(
+              Text(
                 "（資料夾寫有日期）",
                 style: TextStyle(fontSize: 20),
               ),
-              const Text(
+              Text(
                 "5.分析後靜待結果回傳",
                 style: TextStyle(fontSize: 20),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 50,
               ),
             ],
