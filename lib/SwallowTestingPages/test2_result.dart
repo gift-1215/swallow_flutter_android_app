@@ -34,10 +34,10 @@ class Test2Result extends StatelessWidget {
           ],
           toolbarHeight: MediaQuery.of(context).size.height * 0.1,
           title: Text(
-            '量表結果',
+            'EAT-10吞嚥困難篩檢問卷結果',
             style: TextStyle(
                 color: Colors.white,
-                fontSize: MediaQuery.of(context).size.height * 0.040),
+                fontSize: MediaQuery.of(context).size.height * 0.020),
           ),
           iconTheme: const IconThemeData(color: Colors.white),
           backgroundColor: const Color.fromARGB(255, 72, 107, 153),
@@ -47,7 +47,7 @@ class Test2Result extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                '量表總分',
+                '問卷總分',
                 style: TextStyle(fontSize: 30),
               ),
               const SizedBox(
@@ -84,8 +84,8 @@ class Test2Result extends StatelessWidget {
                     },
                     child: const Text(
                       textAlign: TextAlign.center,
-                      '瞭解\n前往RSST測試',
-                      style: TextStyle(fontSize: 30),
+                      '瞭解\n前往反覆唾液吞嚥測試',
+                      style: TextStyle(fontSize: 23),
                     )),
               )
             ],

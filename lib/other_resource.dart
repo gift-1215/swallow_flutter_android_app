@@ -13,8 +13,36 @@ _TainanHealth() async {
   }
 }
 
+_Eatender() async {
+  var url = Uri.parse("https://eatender.firdi.org.tw");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_Hwe() async {
+  var url = Uri.parse("https://www.hwe.org.tw/Html/package.html");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_TadTaiwan() async {
+  var url = Uri.parse("https://tadtaiwan.org.tw/category/學會公告");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 _NCKU() async {
-  var url = Uri.parse("https://tandem.hosp.ncku.edu.tw/Tandem/Default.aspx");
+  var url = Uri.parse(
+      "https://tandem.hosp.ncku.edu.tw/Tandem/MainUI.aspx?Lang=&skv=Y4H6l%2Bm8WPVWaoioPeWwXwpvj8cQUIyE7JZfWMFZOOc%3D");
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -34,6 +62,24 @@ _NCKU_Hospital() async {
 _TainanHealthManuel() async {
   var url = Uri.parse(
       "https://health.tainan.gov.tw/warehouse/6ED4EE62-9397-459A-9E21-7393D8398913/F_1683616383560e.pdf");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_MinistryofHealth() async {
+  var url = Uri.parse("https://dep.mohw.gov.tw/DOOH/cp-6544-71341-124.html");
+  if (await canLaunchUrl(url)) {
+    await launchUrl(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+_Hpa() async {
+  var url = Uri.parse("https://www.hpa.gov.tw/Pages/List.aspx?nodeid=4131");
   if (await canLaunchUrl(url)) {
     await launchUrl(url);
   } else {
@@ -85,7 +131,7 @@ class OtherResource extends StatelessWidget {
               height: 20,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.width * 0.9,
               child: ElevatedButton(
                 onPressed: _NCKU,
@@ -96,8 +142,9 @@ class OtherResource extends StatelessWidget {
                     shadowColor: const Color.fromARGB(255, 218, 218, 218),
                     elevation: 10.0),
                 child: const Text(
-                  "成大醫院門診",
-                  style: TextStyle(fontSize: 40, color: Colors.white),
+                  "成大醫院\n咀嚼吞嚥整合照護門診",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 32, color: Colors.white),
                 ),
               ),
             ),
@@ -105,7 +152,7 @@ class OtherResource extends StatelessWidget {
               height: 20,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.width * 0.9,
               child: ElevatedButton(
                 onPressed: _NCKU_Hospital,
@@ -116,7 +163,7 @@ class OtherResource extends StatelessWidget {
                     shadowColor: const Color.fromARGB(255, 218, 218, 218),
                     elevation: 10.0),
                 child: const Text(
-                  "成大醫院營養部吞嚥困難專區",
+                  "成大醫院營養部\n吞嚥困難專區",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 40, color: Colors.white),
                 ),
@@ -126,7 +173,7 @@ class OtherResource extends StatelessWidget {
               height: 20,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.width * 0.9,
               child: ElevatedButton(
                 onPressed: _TainanHealth,
@@ -147,7 +194,7 @@ class OtherResource extends StatelessWidget {
               height: 20,
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.2,
+              height: MediaQuery.of(context).size.height * 0.15,
               width: MediaQuery.of(context).size.width * 0.9,
               child: ElevatedButton(
                 onPressed: _TainanHealthManuel,
@@ -161,6 +208,111 @@ class OtherResource extends StatelessWidget {
                   "台南市衛生局\n吞嚥障礙衛教手冊",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 35, color: Colors.white),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.15,
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: ElevatedButton(
+                onPressed: _Eatender,
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 147, 179, 233),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    shadowColor: const Color.fromARGB(255, 218, 218, 218),
+                    elevation: 10.0),
+                child: const Text(
+                  "Eatender\n銀髮友善食品",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 35, color: Colors.white),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.15,
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: ElevatedButton(
+                onPressed: _TadTaiwan,
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 147, 179, 233),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    shadowColor: const Color.fromARGB(255, 218, 218, 218),
+                    elevation: 10.0),
+                child: const Text(
+                  "台灣咀嚼吞嚥障礙\n醫學學會公告",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 35, color: Colors.white),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.15,
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: ElevatedButton(
+                onPressed: _Hwe,
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 147, 179, 233),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    shadowColor: const Color.fromARGB(255, 218, 218, 218),
+                    elevation: 10.0),
+                child: const Text(
+                  "厚生基金會\n無管人生",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 35, color: Colors.white),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.15,
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: ElevatedButton(
+                onPressed: _MinistryofHealth,
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 147, 179, 233),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    shadowColor: const Color.fromARGB(255, 218, 218, 218),
+                    elevation: 10.0),
+                child: const Text(
+                  "衛生福利部口腔健康司\n咀嚼吞嚥障礙診治參考指引\n及健康照護手冊",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 25, color: Colors.white),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.15,
+              width: MediaQuery.of(context).size.width * 0.9,
+              child: ElevatedButton(
+                onPressed: _Hpa,
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 147, 179, 233),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0)),
+                    shadowColor: const Color.fromARGB(255, 218, 218, 218),
+                    elevation: 10.0),
+                child: const Text(
+                  "質地調整飲食",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 40, color: Colors.white),
                 ),
               ),
             ),

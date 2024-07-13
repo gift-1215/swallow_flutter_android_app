@@ -103,10 +103,10 @@ class _Test2State extends State<Test2> {
         ],
         toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         title: Text(
-          '吞嚥能力評估量表',
+          'EAT-10吞嚥困難篩檢問卷',
           style: TextStyle(
               color: Colors.white,
-              fontSize: MediaQuery.of(context).size.height * 0.034),
+              fontSize: MediaQuery.of(context).size.height * 0.0245),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromARGB(255, 72, 107, 153),
