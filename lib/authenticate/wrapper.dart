@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project2023/authenticate/sign_in_page.dart';
 import 'package:project2023/home.dart';
+import 'package:project2023/home_page.dart';
 
 class Wrapper extends StatelessWidget {
   const Wrapper({super.key});

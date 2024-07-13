@@ -24,20 +24,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        /*
-        actions: <Widget>[
-          Image(
-            height: MediaQuery.of(context).size.height * 0.06,
-            image: AssetImage('assets/ncku_logo.PNG'),
-            fit: BoxFit.cover,
-          ),
-        ],
-        
-        title: const Text(
-          "手持式吞嚥檢測",
-          style: TextStyle(fontSize: 30, color: Colors.black),
-        ),
-        */
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             image: DecorationImage(
@@ -55,66 +41,158 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              const SizedBox(
+                height: 20,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.23,
-                      width: MediaQuery.of(context).size.width * 0.43,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            shadowColor: Color.fromARGB(255, 218, 218, 218),
-                            elevation: 10.0),
-                        onPressed: () async {
-                          personalInfo = await check_personal_info();
+                  GestureDetector(
+                    onTap: () async {
+                      personalInfo = await check_personal_info();
 
-                          if (personalInfo == false) {
-                            Get.to(const PersonalInfo());
-                          } else {
-                            Get.to(const PersonalInfoShow());
-                          }
-                        },
-                        child: const Text(
-                          "個人資料",
-                          style: TextStyle(fontSize: 30, color: Colors.black),
-                        ),
-                      )),
-                  SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.23,
+                      if (personalInfo == false) {
+                        Get.to(const PersonalInfo());
+                      } else {
+                        Get.to(const PersonalInfoShow());
+                      }
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.blue,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(
+                                0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      height: MediaQuery.of(context).size.height * 0.26,
                       width: MediaQuery.of(context).size.width * 0.43,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            shadowColor: Color.fromARGB(255, 218, 218, 218),
-                            elevation: 10.0),
-                        onPressed: () {
-                          Get.to(const AppDescription());
-                        },
-                        child: const Text(
-                          "App簡介",
-                          style: TextStyle(fontSize: 30, color: Colors.black),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                'assets/personal_image.jpg',
+                                fit: BoxFit.contain,
+                                width: MediaQuery.of(context).size.width * 0.43,
+                              ),
+                            ),
+                            const Text(
+                              "個人資料",
+                              style:
+                                  TextStyle(fontSize: 30, color: Colors.white),
+                            ),
+                          ],
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.offAll(const AppDescription());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.blue,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(
+                                0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      height: MediaQuery.of(context).size.height * 0.26,
+                      width: MediaQuery.of(context).size.width * 0.43,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                'assets/app_image.jpg',
+                                fit: BoxFit.contain,
+                                width: MediaQuery.of(context).size.width * 0.43,
+                              ),
+                            ),
+                            const Text(
+                              "App簡介",
+                              style:
+                                  TextStyle(fontSize: 30, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.05,
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
-              SizedBox(
+              GestureDetector(
+                onTap: () {
+                  Get.offAll(const Test2());
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color.fromARGB(255, 202, 49, 49),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  height: MediaQuery.of(context).size.height * 0.24,
+                  width: MediaQuery.of(context).size.width * 0.9,
+                  child: SingleChildScrollView(
+                    child: Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.asset(
+                            'assets/swallow_image.jpg',
+                            fit: BoxFit.contain,
+                            width: MediaQuery.of(context).size.width * 0.535,
+                          ),
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.15,
+                        ),
+                        const Text(
+                          "吞\n嚥\n檢\n測",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 35, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              /*SizedBox(
                   height: MediaQuery.of(context).size.height * 0.23,
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 233, 215, 205),
+                        backgroundColor: const Color.fromARGB(255, 233, 215, 205),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0)),
-                        shadowColor: Color.fromARGB(255, 218, 218, 218),
+                        shadowColor: const Color.fromARGB(255, 218, 218, 218),
                         elevation: 10.0),
                     onPressed: () {
                       Get.offAll(const Test2());
@@ -123,50 +201,96 @@ class _HomeState extends State<Home> {
                       "吞嚥檢測",
                       style: TextStyle(fontSize: 40, color: Colors.black),
                     ),
-                  )),
+                  )),*/
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.05,
+                height: MediaQuery.of(context).size.height * 0.03,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.23,
+                  GestureDetector(
+                    onTap: () {
+                      Get.offAll(const OnlineVideoPage());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.blue,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(
+                                0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      height: MediaQuery.of(context).size.height * 0.26,
                       width: MediaQuery.of(context).size.width * 0.43,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            shadowColor: Color.fromARGB(255, 218, 218, 218),
-                            elevation: 10.0),
-                        onPressed: () {
-                          Get.off(const OnlineVideoPage());
-                        },
-                        child: const Text(
-                          "健口操",
-                          style: TextStyle(fontSize: 30, color: Colors.black),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                'assets/mouth_image.jpg',
+                                fit: BoxFit.contain,
+                                width: MediaQuery.of(context).size.width * 0.43,
+                              ),
+                            ),
+                            const Text(
+                              "健口操",
+                              style:
+                                  TextStyle(fontSize: 30, color: Colors.white),
+                            ),
+                          ],
                         ),
-                      )),
-                  SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.23,
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.offAll(const OtherResource());
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.blue,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: const Offset(
+                                0, 3), // changes position of shadow
+                          ),
+                        ],
+                      ),
+                      height: MediaQuery.of(context).size.height * 0.26,
                       width: MediaQuery.of(context).size.width * 0.43,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 227, 228, 228),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                            shadowColor: Color.fromARGB(255, 218, 218, 218),
-                            elevation: 10.0),
-                        onPressed: () {
-                          Get.to(const OtherResource());
-                        },
-                        child: const Text(
-                          "其他資源",
-                          style: TextStyle(fontSize: 30, color: Colors.black),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                'assets/other_resource_image.jpg',
+                                fit: BoxFit.contain,
+                                width: MediaQuery.of(context).size.width * 0.43,
+                              ),
+                            ),
+                            const Text(
+                              "其他資源",
+                              style:
+                                  TextStyle(fontSize: 30, color: Colors.white),
+                            ),
+                          ],
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
