@@ -56,7 +56,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
           '吞嚥說明影片',
           style: TextStyle(
               color: Colors.white,
-              fontSize: MediaQuery.of(context).size.height * 0.047),
+              fontSize: MediaQuery.of(context).size.height * 0.04),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromARGB(255, 72, 107, 153),

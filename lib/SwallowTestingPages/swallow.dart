@@ -9,11 +9,8 @@ import 'package:get/get.dart';
 import 'package:project2023/SwallowTestingPages/swallow_result.dart';
 import 'dart:async';
 
-import 'package:project2023/SwallowTestingPages/test1.dart';
-import 'package:project2023/SwallowTestingPages/test2_result.dart';
 import 'package:project2023/SwallowTestingPages/video_player.dart';
 import 'package:project2023/authenticate/wrapper.dart';
-import 'package:video_player/video_player.dart';
 
 var realTimeValue = '3';
 bool waitingServer = false;
@@ -97,7 +94,6 @@ class _SwallowState extends State<Swallow> {
         testRef.child("/").set("3");
         finalans = true;
         setState(() {});
-        //finalans = false;
       }
     });
 

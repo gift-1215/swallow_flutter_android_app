@@ -70,7 +70,7 @@ class OtherResource extends StatelessWidget {
           '其他資源連結',
           style: TextStyle(
               color: Colors.white,
-              fontSize: MediaQuery.of(context).size.height * 0.047),
+              fontSize: MediaQuery.of(context).size.height * 0.045),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromARGB(255, 72, 107, 153),
