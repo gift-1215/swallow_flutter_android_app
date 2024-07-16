@@ -84,10 +84,10 @@ class _Test1State extends State<Test1> {
         ],
         toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         title: Text(
-          'RSST測試',
+          '反覆唾液吞嚥測試',
           style: TextStyle(
               color: Colors.white,
-              fontSize: MediaQuery.of(context).size.height * 0.040),
+              fontSize: MediaQuery.of(context).size.height * 0.033),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: const Color.fromARGB(255, 72, 107, 153),

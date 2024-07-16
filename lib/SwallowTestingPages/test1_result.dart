@@ -51,7 +51,7 @@ class Test1Result extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                'RSST測驗結果',
+                '反覆唾液吞嚥測試結果',
                 style: TextStyle(fontSize: 30),
               ),
               const Text(

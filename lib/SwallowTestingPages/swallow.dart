@@ -263,7 +263,8 @@ class _SwallowState extends State<Swallow> {
                 style: TextStyle(fontSize: 20),
               ),
               Text(
-                "2.將貼片靠緊脖子吞嚥處",
+                "2.將錄音貼片黏貼在喉結 兩側\n(女生則選擇相對位置)",
+                textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20),
               ),
               Text(

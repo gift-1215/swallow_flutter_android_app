@@ -126,7 +126,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
                             side: BorderSide(color: Colors.red, width: 4)),
                       ),
                       child: Text(
-                        "我看完了!\n開始RSST測試",
+                        "我看完了!\n開始反覆唾液吞嚥測試",
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 30, color: Colors.white),
                       ),

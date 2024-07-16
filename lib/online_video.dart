@@ -14,7 +14,7 @@ class OnlineVideoPage extends StatefulWidget {
 class _OnlineVideoPageState extends State<OnlineVideoPage> {
   YoutubePlayerController controller = YoutubePlayerController(
     initialVideoId: 'jm3eLFYf2x8?si=PciMNAAr92UmBAw6',
-    flags: YoutubePlayerFlags(
+    flags: const YoutubePlayerFlags(
       autoPlay: true,
       mute: false,
     ),
@@ -43,7 +43,7 @@ class _OnlineVideoPageState extends State<OnlineVideoPage> {
         ],
         toolbarHeight: MediaQuery.of(context).size.height * 0.1,
         title: Text(
-          '吞嚥健口操',
+          '吞嚥健康操',
           style: TextStyle(
               color: Colors.white,
               fontSize: MediaQuery.of(context).size.height * 0.047),
@@ -59,6 +59,13 @@ class _OnlineVideoPageState extends State<OnlineVideoPage> {
                 controller: controller,
                 showVideoProgressIndicator: false,
                 progressIndicatorColor: Colors.cyanAccent,
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                '中華民國語言治療協會提供',
+                style: TextStyle(fontSize: 25),
               ),
             ],
           ),
